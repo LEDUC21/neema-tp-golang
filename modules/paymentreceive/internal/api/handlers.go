@@ -17,7 +17,7 @@ func (this *Api) GetPaymentReceivedByID(c *fiber.Ctx) error {
 	}
 
 	if payment_received.ID == 0 {
-		SendErrors("PaymentReceived don't exist", c)
+		SendErrors("PaymentReceived list is empty", c)
 		return nil
 	}
 

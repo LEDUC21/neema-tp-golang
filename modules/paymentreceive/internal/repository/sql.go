@@ -9,7 +9,7 @@ import (
 func (r *Repository) GetPaymentReceivedByID(id int) (*PaymentReceivedResource, error) {
 	var payment_received PaymentReceivedResource
 	r.Table("payment_received").
-			 Join("INNER", "customer", "payment_received.id_customer = customer.id").
+			 Join("LEFT", "customer", "payment_received.id_customer = customer.id").
     		 Where("payment_received.id = ?", id).
     		 Find(&payment_received)
 		
